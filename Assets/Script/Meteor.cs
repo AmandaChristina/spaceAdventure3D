@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Meteor : MonoBehaviour
 {
     public float speed, speedRot, period, magnitude;
@@ -41,6 +42,16 @@ public class Meteor : MonoBehaviour
             lado *= -1;
             newX = (Vector3.right * magnitude * Time.deltaTime) * lado;
             cont = 0;
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            GlobalVariables.isLoadScene = true;
         }
     }
 }

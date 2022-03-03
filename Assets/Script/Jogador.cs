@@ -29,12 +29,12 @@ public class Jogador : MonoBehaviour
         //transform.Translate(posX, 0, posY);
     }
 
-    void OnCollissionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Meteor")
-        {
-            //Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
-    }
+    //void OnCollissionEnter(Collision other)
+    //{
+    //    if (other.gameObject.tag == "Meteor")
+    //    {
+    //        Destroy(other.gameObject);
+    //        Destroy(this.gameObject);
+    //    }
+    //}
 }

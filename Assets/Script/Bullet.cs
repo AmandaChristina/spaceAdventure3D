@@ -21,6 +21,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+
+            GlobalVariables.score += 10f;
+            print(GlobalVariables.score);
         }
     }
 }

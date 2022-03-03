@@ -1,22 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameManagement : MonoBehaviour
 {
-    float spawnX, spawnY, spawnZ, cont;
-    public float timeSpawn;
     public GameObject objMeteor;
     Vector3 spawnVector;
+    float spawnX, spawnY, spawnZ, cont, contLoadScene;
+    public float timeSpawn;
 
     void Start()
     {
+        GlobalVariables.isLoadScene = false;
+        GlobalVariables.score = 0f;
         cont = timeSpawn;
     }
     void Update()
     {
        MeteorCreate();
-       Destroy(objMeteor.gameObject, 20f);
+
+        if(GlobalVariables.isLoadScene == true) {
+
+            contLoadScene += Time.deltaTime;
+            if (contLoadScene > 2f)
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+        }
     }
 
     void MeteorCreate()
